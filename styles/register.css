@@ -1,0 +1,14 @@
+#form-register>label{
+    position: absolute;
+    left: 20px;
+}
+
+#form-register>input{
+    position: absolute;
+    right: 20px;
+}
+
+#form-register>input[name="iagree"]{
+    display: inline;
+    position: static;
+}

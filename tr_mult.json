@@ -1,0 +1,158 @@
+{
+  "type" : "multi",
+  "translates" : [
+    {"locale" : "en-us",
+      "page" : "base",
+      "strings" : {
+        "MainTitle":"Here are the things taie",
+        "Agency":"agency",
+        "Description":"Legal aid in any questions"
+      }
+    },
+    {"locale" : "en-us",
+      "page" : "login",
+      "strings" : {
+        "PageTitle":"Login",
+        "Login":"Login",
+        "EnterEmail":"Enter email",
+        "EnterPassword":"Enter password",
+        "LoginBtn":"Login",
+        "Or":"or",
+        "Register":"Register",
+        "ForgotPass":"Forgot your password?",
+        "BAD_LOGIN_DATA": "Login failed, check the entered data",
+        "NO_SUCH_USER": "Such user does not exist, try to register",
+        "INTERNAL_ERROR": "An internal error occurred, please try later"
+      }
+    },
+    {"locale" : "en-us",
+      "page" : "register",
+      "strings" : {
+        "PageTitle":"Registration",
+        "Register":"Sign Up",
+        "LoginLink":"Login if you are registered",
+        "Email":"Email",
+        "Password":"Password",
+        "PasswordAgain":"again",
+        "Avatar":"Avatar",
+        "FirstName":"First name",
+        "Surname":"Surname",
+        "Locale":"Locale",
+        "PH_Email":"your.email@mail.com",
+        "PH_Password":"Enter your password",
+        "PH_PasswordAgain":"Enter your password again",
+        "PH_FirstName":"Real first name",
+        "PH_Surname":"Real surname",
+        "RegisterInfo":"Modify and add information after registration can be in your account",
+        "IAgreeWith":"By registering, I agree with the",
+        "ResourceRules":"rules of use of the resource",
+        "RegisterBtn":"Sign Up",
+        "EMAIL_ALREADY_EXIST": "User with this email already registered, try another",
+        "BAD_REGISTRATION_DATA": "Registration error, check the entered data",
+        "BAD_REGISTRATION_IMAGE": "Registration error, check the correctness of the image",
+        "INTERNAL_ERROR": "An internal error occurred, please try later"
+      }
+    },
+
+    {"locale" : "en-us",
+      "page" : "editor",
+      "strings" : {
+        "PageTitle":"Editing",
+        "Editor":"Editor",
+        "TranslationsFile":"Translations file",
+        "SetupBtn":"Setup",
+        "GoToProfile":"Go to profile",
+        "OperationSuccess":"Operation is success",
+        "OperationFail":"Operation failed, an error has occurred"
+      }
+    },
+    {"locale" : "en-us",
+      "page" : "profile",
+      "strings" : {
+        "PageTitle":"Profile",
+        "Exit":"Logout",
+        "FirstName":"First name",
+        "Surname":"Surname",
+        "Email":"Email",
+        "GoToEditor":"Go to editor"
+      }
+    },
+
+
+    {"locale" : "ru-ru",
+      "page" : "base",
+      "strings" : {
+        "MainTitle":"Такие вот дела",
+        "Agency":"агенство",
+        "Description":"Юридическая помощь в любых вопросах"
+      }
+    },
+    {"locale" : "ru-ru",
+      "page" : "login",
+      "strings" : {
+        "PageTitle":"Вход",
+        "Login":"Войти",
+        "EnterEmail":"Введите email",
+        "EnterPassword":"Enter пароль",
+        "LoginBtn":"Войти",
+        "Or":"или",
+        "Register":"Зарегистрироваться",
+        "ForgotPass":"Забыли пароль?",
+        "BAD_LOGIN_DATA": "Ошибка входа, проверьте правильность введённых данных",
+        "NO_SUCH_USER": "Такого пользователя не существует, зарегистрируйтесь",
+        "INTERNAL_ERROR": "Произошла внутренняя ошибка, попробуйте позже"
+      }
+    },
+    {"locale" : "ru-ru",
+      "page" : "register",
+      "strings" : {
+        "PageTitle":"Регистрация",
+        "Register":"Регистрация",
+        "LoginLink":"Войти, если Вы зарегистрированы",
+        "Email":"Email",
+        "Password":"Введите пароль",
+        "PasswordAgain":"ещё раз",
+        "Avatar":"Аватар",
+        "FirstName":"Имя",
+        "Surname":"Фамилия",
+        "Locale":"Локаль",
+        "PH_Email":"vash.email@mail.com",
+        "PH_Password":"Введите Ваш пароль",
+        "PH_PasswordAgain":"Введите пароль ещё раз",
+        "PH_FirstName":"Реальное имя",
+        "PH_Surname":"Реальная фамилия",
+        "RegisterInfo":"Изменить или добавить информацию после регистрации можно в личном кабинете.",
+        "IAgreeWith":"Регистрируясь я соглашаюсь с",
+        "ResourceRules":"правилами пользования ресурса",
+        "RegisterBtn":"Зарегистрироваться",
+        "EMAIL_ALREADY_EXIST": "Пользователь с таким email уже зарегистрирован, выберите другой",
+        "BAD_REGISTRATION_DATA": "Ошибка регистрации, проверьте правильность введённых данных",
+        "BAD_REGISTRATION_IMAGE": "Ошибка регистрации, проверьте корректность изображения",
+        "INTERNAL_ERROR": "Произошла внутренняя ошибка, попробуйте позже"
+      }
+    },
+    {"locale" : "ru-ru",
+      "page" : "editor",
+      "strings" : {
+        "PageTitle":"Редактор",
+        "Editor":"Редактор",
+        "TranslationsFile":"Файл перевода",
+        "SetupBtn":"Установить",
+        "GoToProfile":"Перейти в профиль",
+        "OperationSuccess":"Операция успешна",
+        "OperationFail":"Операция неудалась, произошла ошибка"
+      }
+    },
+    {"locale" : "ru-ru",
+      "page" : "profile",
+      "strings" : {
+        "PageTitle":"Профиль",
+        "Exit":"Выход",
+        "FirstName":"Имя",
+        "Surname":"Фамилия",
+        "Email":"еПочта",
+        "GoToEditor":"Перейти в редиктор"
+      }
+    }
+  ]
+}

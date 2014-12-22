@@ -1,0 +1,22 @@
+.profile-data{
+    background-color: rgba(255,255,255,0.3);
+    margin: 20px 5px;
+    padding: 7px 20px;
+    border-radius: 20px;
+    width: 100%;   
+}
+
+.data-name{
+    font-style: italic;
+}
+
+.data-param{
+    font-family: 'Open Sans', 'Liberation Sans';
+    position: absolute;
+    left: 200px;
+
+}
+
+.profile-data img{
+    outline: 3px solid #BEF8CF;
+}

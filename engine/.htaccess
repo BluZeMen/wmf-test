@@ -1,0 +1,4 @@
+<FilesMatch ~ "\.(php|bin|sh|json|htaccess)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

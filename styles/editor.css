@@ -1,0 +1,88 @@
+h2{
+	text-transform: none;
+}
+
+a{
+	font-family: monospace;
+	color: #043634;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.form-container{
+	height: 600px;
+	width: 450px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: rgba(255,255,255, 0.3);
+	overflow: hidden;
+}
+
+form{
+	position: relative;
+	font-family: sans-serif;
+	/*outline: 1px solid #aaa;*/
+	padding: 10px;
+	text-align: center;
+	transition: all 1s ease-in-out;
+}
+
+
+
+form *{
+	margin: 5px 0px 5px 0px;
+}
+
+form>label{
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+}
+
+form>input{
+	height: 20px;
+	font: 'Liberation Sans' 10px italic;
+	width: 65%;
+}
+
+form p, form span{
+	font-size: 12px;
+}
+
+form>label{
+	position: absolute;
+	left: 20px;
+}
+
+form>input{
+	position: absolute;
+	right: 20px;
+}
+
+form>input[name="iagree"]{
+	display: inline;
+	position: static;
+}
+
+form>input[type="submit"]{
+	height: 25px;
+}
+
+.form-title{
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+}
+
+#error-output{
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+
+    background-color: #FFAE57;
+    color: #212121;
+}
