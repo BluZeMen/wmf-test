@@ -85,14 +85,18 @@ body{
     color: #222;
 }
 
-.go-to{
+.go-to, .logout{
     color: #333;
     text-decoration: none;
     font-style: italic;
     font-family: helvetica, arial, sans-serif;
 }
 
-.go-to:hover{
+.go-to:hover, .logout:hover{
     color: #111;
     text-decoration: underline;
+}
+
+.logout{
+    color: #331;
 }

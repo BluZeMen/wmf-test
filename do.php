@@ -80,7 +80,9 @@ if(isset($_GET['a'])) {
                 break;
             }elseif(isFormPosted()){
                 //getting avatar
-                $a = isset($_FILES['avatar']['tmp_name']) ? $_FILES['avatar'] : null;
+                $a = isset($_FILES['avatar']['error'])
+                && ($_FILES['avatar']['error'] == 0) ?
+                    $_FILES['avatar'] : null;
 
                 //if it was send, let's get the it's data
                 if($a){

@@ -7,8 +7,6 @@
  */
 
 require_once 'conf.php';
-require_once 'log.php';
-
 
 class DB
 {
@@ -34,8 +32,6 @@ class DB
             //self::$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         } catch (PDOException $e) {
             echo $e->getMessage();
-            global $log;
-            $log->error('Connection error: ' . $e->getMessage());
             exit();
         }
         return self::$conn;
