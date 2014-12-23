@@ -78,7 +78,6 @@
       }
     },
 
-
     {"locale" : "ru-ru",
       "page" : "base",
       "strings" : {
@@ -93,7 +92,7 @@
         "PageTitle":"Вход",
         "Login":"Войти",
         "EnterEmail":"Введите email",
-        "EnterPassword":"Enter пароль",
+        "EnterPassword":"Введите пароль",
         "LoginBtn":"Войти",
         "Or":"или",
         "Register":"Зарегистрироваться",
@@ -110,7 +109,7 @@
         "Register":"Регистрация",
         "LoginLink":"Войти, если Вы зарегистрированы",
         "Email":"Email",
-        "Password":"Введите пароль",
+        "Password":"Пароль",
         "PasswordAgain":"ещё раз",
         "Avatar":"Аватар",
         "FirstName":"Имя",
