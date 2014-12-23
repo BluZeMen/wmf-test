@@ -88,7 +88,12 @@ class Localization {
     public function save()
     {
         if (!is_string($this->strings)) {
-            $this->strings = json_encode($this->strings, JSON_UNESCAPED_UNICODE);
+            $this->strings =
+                preg_replace_callback('/\\\\u([0-9a-f]{4})/i',
+                    function($val){
+                        return mb_decode_numericentity('&#'.intval($val[1], 16).';', array(0, 0xffff, 0, 0xffff), 'utf-8');
+                    }, json_encode($this->strings)
+                );
         }
         $ses = DB::getConnection()->prepare(
             "REPLACE INTO ".self::TABLE_NAME." (locale, page, strings)
