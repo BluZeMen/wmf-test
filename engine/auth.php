@@ -25,12 +25,12 @@ class Auth
         if(!User::isValidRegistrationData($data))
             return self::BAD_REGISTRATION_DATA;
 
-        if($data['avatar'] && !UserPic::isValidNewData($data['avatar']))
-            return self::BAD_REGISTRATION_IMAGE;
-
         $a = self::DEFAULT_AVATAR;
         if($data['avatar']) {
             $a = $data['avatar'];
+            if(!UserPic::isValidNewData($a))
+                return self::BAD_REGISTRATION_IMAGE;
+
             $p = new UserPic();
             $p->description = 'avatar';
             $p->bin_data = $a['bin_data'];
