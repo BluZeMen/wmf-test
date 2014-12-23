@@ -1,7 +1,15 @@
-code{
-    border-radius: 10px;
+#reader-list{
+    padding: 10px 20px;
+}
+
+#text-container{
+    padding: 5px 7px;
+    margin: 0 auto;
+    border-radius: 3px;
     background-color: antiquewhite;
     color: #043634;
+    width: 90%;
+    font-family: serif;
 }
 
 title{
