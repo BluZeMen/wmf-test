@@ -9,9 +9,11 @@
 require_once 'engine/incl_all.php';
 require_once 'engine/auth.php';
 
-require_once 'engine/utils.php';
+require_once 'engine/lib/http.php';
 require_once 'engine/render.php';
 require_once 'engine/view.php';
+require_once 'engine/lib/fs.php';
+require_once 'engine/log.php';
 
 
 $viewForRender = null;
@@ -51,6 +53,9 @@ function setToRender($view, $params = null, $base = 'base'){
 
     $renderBase = $base;
 }
+
+if(!Auth::isLogged() && isset($_GET['at']))
+    Auth::loginByOTAT($_GET['at']);
 
 if(isset($_GET['a'])) {
     switch ($_GET['a']) {
@@ -99,9 +104,10 @@ if(isset($_GET['a'])) {
                 $data += array('avatar' => $a);
                 $reg = Auth::registerNew($data);
                 if($reg == Auth::OK ) {
-                    $l = Auth::login($data);
-                    setRedirect($l == Auth::OK ? 'do.php?a=profile' : 'do.php?a=login&error='.$l);
+                    setToRender('login');
+                    //setRedirect($l == Auth::OK ? 'do.php?a=login' : 'do.php?a=login&error='.$l);
                 }else{
+                    Log::get('register')->debug('Registration fail (code '.$reg.'). Bad data ', $data);
                     setToRender('register', array('error_code' => $reg));
                 }
                 break;
@@ -114,7 +120,6 @@ if(isset($_GET['a'])) {
         case 'profile':{
             if (Auth::isLogged()) {
                 setToRender('profile');
-
             }else {
                 setRedirect('do.php?a=login');
             }
@@ -124,7 +129,6 @@ if(isset($_GET['a'])) {
         case 'editor':{
             if (Auth::isLogged()) {
                 setToRender('editor');
-
             }else {
                 setRedirect('do.php?a=login');
             }
@@ -133,10 +137,22 @@ if(isset($_GET['a'])) {
 
         case 'reader':{
             $reqDoc =  isset($_GET['doc']) ? filter_var($_GET['doc'], FILTER_SANITIZE_STRING) : 'doc-not-found';
-            $fullPath = BASE_DIR.DIRECTORY_SEPARATOR.'docs'.DIRECTORY_SEPARATOR.
-                $reqDoc.'-'.View::getRequestedLanguage().'.txt';
+            $fullPath = basePath('docs',$reqDoc.'-'.View::getRequestedLanguage().'.txt');
             //echo View::getLanguage();
             setToRender('reader', array('doc_full_path' => $fullPath, 'alt_page_title' => $reqDoc));
+            break;
+        }
+
+        case 'rec-pass':{
+            if (Auth::isLogged()) {
+                setRedirect('do.php?a=profile');
+                break;
+            }elseif(isFormPosted()){
+                $r = Auth::requestRecoverPassword($_POST);
+                setToRender('login', array('recoverPassword' => true, 'requestRecoverPasswordResult' => $r));
+                break;
+            }
+            setToRender('login', array('recoverPassword' => true));
             break;
         }
 
@@ -156,6 +172,3 @@ if($viewForRender)
 
 //by default
 redirect('do.php?a=login&loc='.$locale);
-
-
-?>

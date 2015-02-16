@@ -5,17 +5,33 @@
  * Date: 15.12.14
  * Time: 19:57
  */
+require_once 'lib/json.php';
+require_once 'dao/db.php';
+require_once 'log.php';
 
 class Localization {
     const TABLE_NAME = 'localization';
-    public $locale = null; // short name of locale
-    public $page = null; // name of page translations
+    public $page = null; // name_of_page.name_of_locale
     public $strings = null; // json document of dictionary
 
-    const MAX_LEN_LANG = 5;
-    const MAX_LEN_PAGE = 30;
+    const MAX_LEN_PAGE = 50;
     const MAX_LEN_STRINGS = DB::LEN_MYSQL_MEDIUMTEXT;
 
+    static public function initTable(){
+        if(DB::isTableExist(self::TABLE_NAME)){
+            return true;
+        }
+
+        $pl = self::MAX_LEN_PAGE;
+        $q = "CREATE TABLE IF NOT EXISTS `localization` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `page` varchar($pl) COLLATE utf8_bin NOT NULL,
+        `strings` mediumtext COLLATE utf8_bin NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+        $sh = DB::getConnection()->exec($q);
+        return DB::isTableExist(self::TABLE_NAME);
+    }
 
     static function fromData(array $data)
     {
@@ -42,7 +58,6 @@ class Localization {
 
     private static function buildFromData(array $data){
         $loc = new Localization();
-        $loc->locale = $data['locale'];
         $loc->page = $data['page'];
         $loc->strings = $data['strings'];
 
@@ -51,8 +66,9 @@ class Localization {
 
     public static function getLocalization($loc, $page)
     {
-        $q = "SELECT locale, page, strings
-            FROM " . self::TABLE_NAME . " WHERE locale='$loc' AND page='$page'";
+        $page = $page.'.'.$loc;
+        $q = "SELECT page, strings
+            FROM " . self::TABLE_NAME . " WHERE page='$page'";
         $sh = DB::getConnection()->query($q);
         $sh->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
         $s = $sh->fetch();
@@ -61,10 +77,17 @@ class Localization {
 
     public static function getStrings($loc, $page)
     {
+        $page = $page.'.'.$loc;
         $q = "SELECT strings
             FROM " . self::TABLE_NAME .
-            " WHERE locale='$loc' AND page='$page'";
-        $sh = DB::getConnection()->query($q);
+            " WHERE page='$page'";
+
+        try {
+            $sh = DB::getConnection()->query($q);
+        }catch (Exception $e){
+            //echo var_dump($e);
+            Log::get('db')->error(var_dump($e));
+        }
         $sh->setFetchMode(PDO::FETCH_ASSOC);
         $s = $sh->fetch();
         $s = json_decode($s['strings'], true);
@@ -79,25 +102,14 @@ class Localization {
         return $this->strings[$sname];
     }
 
-    public static function clear(){
-        $ses = DB::getConnection()->prepare(
-            "TRUNCATE TABLE ".self::TABLE_NAME);
-        return $ses->execute();;
-    }
-
     public function save()
     {
         if (!is_string($this->strings)) {
-            $this->strings =
-                preg_replace_callback('/\\\\u([0-9a-f]{4})/i',
-                    function($val){
-                        return mb_decode_numericentity('&#'.intval($val[1], 16).';', array(0, 0xffff, 0, 0xffff), 'utf-8');
-                    }, json_encode($this->strings)
-                );
+            $this->strings = json_encode_u($this->strings);
         }
         $ses = DB::getConnection()->prepare(
-            "REPLACE INTO ".self::TABLE_NAME." (locale, page, strings)
-            VALUES (:locale, :page, :strings)");
+            "REPLACE INTO ".self::TABLE_NAME." (page, strings)
+            VALUES (:page, :strings)");
 
         return $ses->execute((array)$this);;
     }

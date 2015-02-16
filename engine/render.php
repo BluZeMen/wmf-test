@@ -7,7 +7,7 @@
  */
 
 function getViewsPath(){
-    return BASE_DIR.PROJ_CONF::VIEWS_PATH.DIRECTORY_SEPARATOR;
+    return basePath(PROJ_CONF::VIEWS_PATH);
 }
 
 
@@ -22,7 +22,7 @@ function render($view, array $params = null, $defaultLocale = PROJ_CONF::DEFAULT
     include 'incl_view.php';
     setupView($view, $defaultLocale, $base);
     //include "view/$base.php";
-    include getViewsPath().$base.'.php';
+    include makePath(getViewsPath(), $base.'.php');
 
     exit;
 }

@@ -22,6 +22,24 @@ class UserPic
     const MAX_LEN_FILETYPE = 80;
     const MAX_FILESIZE = 16777215;
 
+    static public function initTable(){
+        if(DB::isTableExist(self::TABLE_NAME)){
+            return true;
+        }
+        $q = "CREATE TABLE IF NOT EXISTS `user_pics` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `description` varchar(50) COLLATE utf8_bin NOT NULL,
+        `bin_data` mediumblob NOT NULL,
+        `filename` varchar(50) COLLATE utf8_bin NOT NULL,
+        `filesize` int(11) NOT NULL,
+        `filetype` varchar(80) COLLATE utf8_bin NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+
+        $sh = DB::getConnection()->exec($q);
+        return DB::isTableExist(self::TABLE_NAME);
+    }
+
     static function fromHTTPFile($filename)
     {
         if (empty($_FILES[$filename]['name'])) return false;

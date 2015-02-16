@@ -15,14 +15,14 @@ class View
     private static $locale = null;
     private static $dict = null;
 
-    public static function setup($name, $lang='ru-ru', $base='base')
+    public static function setup($name, $loc='ru-ru', $base='base')
     {
         self::$name = $name;
         self::$base = $base;
-        self::$locale = $lang;
+        self::$locale = $loc;
 
-        self::$dict = Localization::getStrings($lang, $name);
-        $bdict = Localization::getStrings($lang, $base);
+        self::$dict = Localization::getStrings($loc, $name);
+        $bdict = Localization::getStrings($loc, $base);
         if(self::$dict && $bdict) {
             self::$dict += $bdict;
         }elseif(!self::$dict && $bdict){

@@ -8,7 +8,7 @@
 
 require_once 'view.php';
 require_once 'auth.php';
-require_once 'utils.php';
+require_once 'lib/fs.php';
 
 function lstr($str, $alt = null)
 {
@@ -30,7 +30,7 @@ function urlTo($viewName, array $params = null){
 
 function putViewStyle($viewName)
 {
-    if(file_exists(BASE_DIR.PROJ_CONF::STYLES_PATH.DIRECTORY_SEPARATOR.$viewName.'.css'))
+    if(file_exists(basePath(PROJ_CONF::STYLES_PATH, $viewName.'.css')))
         echo "<link rel=\"stylesheet\" href=\"styles/$viewName.css\">";
 }
 

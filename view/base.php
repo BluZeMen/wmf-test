@@ -40,6 +40,26 @@
     <div id="error-output">
         <?php
 
+        if(isset($requestRecoverPasswordResult))
+            switch($requestRecoverPasswordResult) {
+                case Auth::OK :{
+                    echo lstr('RequestIsSuccess');
+                    break;
+                }
+                case Auth::NO_SUCH_USER : {
+                    echo lstr('NO_SUCH_USER');
+                    break;
+                }
+                case Auth::LIMIT_IS_EXCEEDED:{
+                    echo lstr('LIMIT_IS_EXCEEDED');
+                    break;
+                }
+                default:{
+                    echo lstr('INTERNAL_ERROR');
+                    break;
+                }
+            }
+
         if(isset($__errors))
             foreach($__errors as $e){
                 echo "<p>$e</p>";

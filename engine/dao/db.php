@@ -50,6 +50,12 @@ class DB
         return self::$conn;
     }
 
+    static function isTableExist($tableName)
+    {
+
+        return self::getConnection()->exec("SHOW TABLES LIKE '$tableName'") > 0;
+    }
+
     const LEN_MYSQL_MEDIUMTEXT = 16777215;
 
 }

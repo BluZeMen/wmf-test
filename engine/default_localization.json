@@ -1,16 +1,14 @@
 {
   "type" : "multi",
   "translates" : [
-    {"locale" : "en-us",
-      "page" : "base",
+    {"page" : "base.en-us",
       "strings" : {
         "MainTitle":"Here are the things taie",
         "Agency":"agency",
         "Description":"Legal aid in any questions"
       }
     },
-    {"locale" : "en-us",
-      "page" : "login",
+    {"page" : "login.en-us",
       "strings" : {
         "PageTitle":"Login",
         "Login":"Login",
@@ -25,8 +23,7 @@
         "INTERNAL_ERROR": "An internal error occurred, please try later"
       }
     },
-    {"locale" : "en-us",
-      "page" : "register",
+    {"page" : "register.en-us",
       "strings" : {
         "PageTitle":"Registration",
         "Register":"Sign Up",
@@ -53,21 +50,24 @@
         "INTERNAL_ERROR": "An internal error occurred, please try later"
       }
     },
-
-    {"locale" : "en-us",
-      "page" : "editor",
+    {"page" : "editor.en-us",
       "strings" : {
         "PageTitle":"Editing",
         "Editor":"Editor",
         "TranslationsFile":"Translations file",
+        "OldPassword":"Old password",
+        "PH_OldPassword":"Enter your old password",
+        "NewPassword":"New password",
+        "NewPasswordAgain":"Again  new password",
+        "PH_Password":"Enter your password",
+        "PH_PasswordAgain":"Enter your password again",
         "SetupBtn":"Setup",
         "GoToProfile":"Go to profile",
         "OperationSuccess":"Operation is success",
         "OperationFail":"Operation failed, an error has occurred"
       }
     },
-    {"locale" : "en-us",
-      "page" : "profile",
+    {"page" : "profile.en-us",
       "strings" : {
         "PageTitle":"Profile",
         "Exit":"Logout",
@@ -77,17 +77,14 @@
         "GoToEditor":"Go to editor"
       }
     },
-
-    {"locale" : "ru-ru",
-      "page" : "base",
+    {"page" : "base.ru-ru",
       "strings" : {
         "MainTitle":"Такие вот дела",
         "Agency":"агенство",
         "Description":"Юридическая помощь в любых вопросах"
       }
     },
-    {"locale" : "ru-ru",
-      "page" : "login",
+    {"page" : "login.ru-ru",
       "strings" : {
         "PageTitle":"Вход",
         "Login":"Войти",
@@ -102,8 +99,7 @@
         "INTERNAL_ERROR": "Произошла внутренняя ошибка, попробуйте позже"
       }
     },
-    {"locale" : "ru-ru",
-      "page" : "register",
+    {"page" : "register.ru-ru",
       "strings" : {
         "PageTitle":"Регистрация",
         "Register":"Регистрация",
@@ -130,20 +126,24 @@
         "INTERNAL_ERROR": "Произошла внутренняя ошибка, попробуйте позже"
       }
     },
-    {"locale" : "ru-ru",
-      "page" : "editor",
+    {"page" : "editor.ru-ru",
       "strings" : {
         "PageTitle":"Редактор",
         "Editor":"Редактор",
         "TranslationsFile":"Файл перевода",
+        "OldPassword":"Старый пароль",
+        "NewPassword":"Новый пароль",
+        "PH_OldPassword":"Введите Ваш старый пароль",
+        "NewPasswordAgain":"Ещё раз новый пароль",
+        "PH_Password":"Введите Ваш пароль",
+        "PH_PasswordAgain":"пароль ещё раз",
         "SetupBtn":"Установить",
         "GoToProfile":"Перейти в профиль",
         "OperationSuccess":"Операция успешна",
         "OperationFail":"Операция неудалась, произошла ошибка"
       }
     },
-    {"locale" : "ru-ru",
-      "page" : "profile",
+    {"page" : "profile.ru-ru",
       "strings" : {
         "PageTitle":"Профиль",
         "Exit":"Выход",
